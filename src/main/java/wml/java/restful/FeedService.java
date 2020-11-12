@@ -1,5 +1,6 @@
 package wml.java.restful;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -26,5 +27,37 @@ public class FeedService {
 	public void delete(Integer id) {
 		repo.deleteById(id);
 	}
+	
+    public List<Feed> listAll() {
+        return (List<Feed>) repo.findAll();
+    }
+    
+    public void UpdateFeed(FlickrRequest request) {
+    	List<Item> item;
+		try {
+			item = request.getFeed();
+			for(Item i : item) {
+				Feed feed = new Feed();
+				feed.setAuthor(i.getAuthor());
+				feed.setLink(i.getLink());
+				feed.setAuthor_id(i.getAuthor());
+				feed.setDate_taken(i.getDateTaken().toString());
+				feed.setMedia(i.getMedia().getM());
+				feed.setPublished(i.getPublished().toString());
+				feed.setTags(i.getTags());
+				feed.setTitle(i.getTitle());
+				feed.setDescription(i.getDescription());
+				repo.save(feed);	
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public void deleteAndUpdate(FlickrRequest request) {
+    	repo.deleteAll();
+    	this.UpdateFeed(request);
+    }
 	
 }
