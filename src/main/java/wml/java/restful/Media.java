@@ -18,6 +18,7 @@ public class Media {
 
 @JsonProperty("m")
 private String m;
+
 @JsonIgnore
 private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
