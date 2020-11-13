@@ -16,7 +16,6 @@ public class FeedService {
 	private FeedRepository repo;
 	
 	public void save(Feed feed) {
-		//System.out.print(feed.getAuthor());
 		repo.save(feed);
 	}
 	
