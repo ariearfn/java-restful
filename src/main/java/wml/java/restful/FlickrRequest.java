@@ -11,23 +11,6 @@ import java.util.List;
 
 public class FlickrRequest {
 	
-//	@Autowired
-//	private FeedRepository feedRepository;
-	
-//	public void save() {
-//		Feed feed = new Feed();
-//		feed.setAuthor("tes");
-//		feed.setLink("tes");
-//		feed.setAuthor_id("tes");
-//		feed.setDate_taken("tes");
-//		feed.setMedia("tes");
-//		feed.setPublished("tes");
-//		feed.setTags("tes");
-//		feed.setTitle("tes");
-//		feed.setDescription("tes");
-//		feedRepository.save(feed);
-//	}
-	
 	public List<Item> getFeed() throws JsonParseException, JsonMappingException, IOException {
 		System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
 		ObjectMapper objectMapper = new ObjectMapper();
